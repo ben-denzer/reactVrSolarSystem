@@ -1,4 +1,5 @@
 import { VRInstance } from 'react-vr-web';
+const DEV = process.env.NODE_ENV === 'development';
 
 function init(bundle, parent, options) {
   const vr = new VRInstance(bundle, 'second_vr', parent, {
