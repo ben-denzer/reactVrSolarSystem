@@ -3,8 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node -e \"console.log('open browser at http://localhost:8081/vr/\\n\\n');\" && node node_modules/react-native/local-cli/cli.js start",
+    "start":
+      "node -e \"console.log('open browser at http://localhost:8081/vr/\\n\\n');\" && node node_modules/react-native/local-cli/cli.js start",
+    "build": "npm run bundle",
+    "build-and-publish": "npm run bundle && npm run publish",
     "bundle": "node node_modules/react-vr/scripts/bundle.js",
+    "postbundle": "bash ./postBuild.sh",
+    "publish": "bash ./publish.sh",
     "open": "node -e \"require('xopen')('http://localhost:8081/vr/')\"",
     "devtools": "react-devtools",
     "test": "jest"

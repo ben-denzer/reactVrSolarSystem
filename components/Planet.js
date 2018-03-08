@@ -11,13 +11,14 @@ const Planet = props => {
     rotateY,
     rotateZ
   } = props.data;
+  const imageUrl = DEV ? `../static_assets/${image}` : `static_assets/${image}`;
 
   return (
     <Sphere
       radius={radius}
       widthSegments={500}
       heightSegments={500}
-      texture={`../static_assets/${image}`}
+      texture={imageUrl}
       style={{
         layoutOrigin,
         transform: [

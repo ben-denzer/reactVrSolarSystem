@@ -5,6 +5,8 @@ import Jupiter from './Jupiter';
 import Planet from './Planet';
 import transformHelper from '../utils/transformHelper';
 
+global.DEV = process.env.NODE_ENV === 'development';
+
 export default class App extends Component {
   constructor(props) {
     super(props);
