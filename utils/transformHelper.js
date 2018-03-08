@@ -1,10 +1,11 @@
-const transformHelper = (oldState, x, y) => {
+const transformHelper = planet => {
+  const { animate, location } = planet;
   const newLocation = [
-    oldState.location[0] + x,
-    oldState.location[1] + y,
-    oldState.location[2] + 0.2
+    location[0] + animate[0],
+    location[1] + animate[1],
+    location[2] + 0.2
   ];
-  return Object.assign({}, oldState, { location: newLocation });
+  return Object.assign({}, planet, { location: newLocation });
 };
 
 export default transformHelper;

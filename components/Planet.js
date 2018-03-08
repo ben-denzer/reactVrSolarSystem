@@ -2,7 +2,16 @@ import React from 'react';
 import { Sphere } from 'react-vr';
 
 const Planet = props => {
-  const { radius, layoutOrigin, location, image } = props.data;
+  const {
+    layoutOrigin,
+    location,
+    image,
+    radius,
+    rotateX,
+    rotateY,
+    rotateZ
+  } = props.data;
+
   return (
     <Sphere
       radius={radius}
@@ -11,7 +20,12 @@ const Planet = props => {
       texture={`../static_assets/${image}`}
       style={{
         layoutOrigin,
-        transform: [{ translate: location }]
+        transform: [
+          { translate: location },
+          { rotateX: rotateX || 0 },
+          { rotateY: rotateY || 0 },
+          { rotateZ: rotateZ || 0 }
+        ]
       }}
     />
   );
