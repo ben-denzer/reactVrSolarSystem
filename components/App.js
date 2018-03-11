@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { asset, Model, Pano, View, Box, Sphere } from 'react-vr';
+import { asset, Text, Pano, View, Plane, Sphere } from 'react-vr';
 
-import Jupiter from './Jupiter';
 import Planet from './Planet';
 import transformHelper from '../utils/transformHelper';
 
@@ -13,7 +12,7 @@ export default class App extends Component {
       planets: [
         {
           id: 'mercury',
-          radius: 10,
+          radius: 8,
           layoutOrigin: [2, 0.5],
           image: 'mercurySurface.jpg',
           location: [0, 0, -150],
@@ -29,7 +28,7 @@ export default class App extends Component {
         },
         {
           id: 'earth',
-          radius: 25,
+          radius: 20,
           layoutOrigin: [-2, 2],
           image: 'earthSurface.jpg',
           location: [0, 0, -400],
@@ -46,7 +45,7 @@ export default class App extends Component {
         },
         {
           id: 'mars',
-          radius: 22,
+          radius: 17,
           layoutOrigin: [2, -1],
           image: 'marsSurface.jpg',
           location: [0, 0, -600],
@@ -86,11 +85,31 @@ export default class App extends Component {
         },
         {
           id: 'jupiter',
-          radius: 60,
+          radius: 70,
           layoutOrigin: [0.5, 1],
           image: 'jupiterSurface.jpg',
           location: [2, -1, -900],
           animate: [-0.01, -0.02]
+        },
+        {
+          id: 'saturn',
+          radius: 60,
+          layoutOrigin: [0.5, -1],
+          image: 'saturnSurface.jpg',
+          location: [2, -1, -1280],
+          animate: [-0.01, -0.02],
+          hasRings: true,
+          ringSize: 240,
+          ringRotateX: -30,
+          ringRotateY: 80
+        },
+        {
+          id: 'uranus',
+          radius: 30,
+          layoutOrigin: [-0.5, 1],
+          image: 'uranusSurface.jpg',
+          location: [2, -1, -1510],
+          animate: [-0.02, 0.02]
         }
       ]
     };
@@ -111,6 +130,7 @@ export default class App extends Component {
 
   render() {
     const planets = this.state.planets.map(a => <Planet key={a.id} data={a} />);
+    const ringSize = 240;
     return (
       <View>
         <Pano source={asset('space.jpg')} />
